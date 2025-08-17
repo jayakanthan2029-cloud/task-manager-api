@@ -11,7 +11,7 @@ app.use(cors());
 app.use(express.json());
 
 // Routes
-app.use("/api/users", userRoutes); // can also use "/api/auth" if preferred
+app.use("/api/users", userRoutes);
 app.use("/api/tasks", taskRoutes);
 
 // Health route
@@ -19,7 +19,7 @@ app.get("/health", (req, res) => {
   res.json({ status: "API is running ✅", uptime: process.uptime() });
 });
 
-// Optional root route
+// Root route
 app.get("/", (req, res) => {
   res.send(`
     <h2>Task Manager API is live ✅</h2>
@@ -33,6 +33,5 @@ app.get("/", (req, res) => {
     </ul>
   `);
 });
-
 
 module.exports = app;
